@@ -1,64 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>webamp_mod_dw</title>
-<meta charset="UTF-8" />
-<link rel="shortcut icon" sizes="16x16 32x32" href="images/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="https://wilkinsonmp3.pages.dev/src/style.css" />
-<!-- <style type="text/css" media="screen">
-    * { font-family: sans-serif; }
-    body { font-size: 2em; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #222; color: #ccc; }
-    }
-    @media (prefers-color-scheme: light) {
-      body { background: #eee; color: #444; }
-    }
-</style> -->
-</head>
-<body>
-<div id="main">
-	<script src="https://unpkg.com/webamp@1.5.0/built/webamp.bundle.min.js"></script>
-	<script>
-	    const Webamp = window.Webamp, webamp = new Webamp({
-			initialTracks: [
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/My_Rainmix_After_AutoGain_No_Gaps.mp3", },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/STAN(TECHNO).mp3", },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/EDM-bangin-cutout.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/ASkyFullOfStars(Techno).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/AnotherLove(Techno).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/DJ SKY-2stroke.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/DJ_JASON_HAVANNA.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/EDM-bangin-cutout.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/JUSTDANCE.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Otherside.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/RythmIsADancer(Hypertechno).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/STAN(TECHNO).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/SomethingJustLikeThis(Techno).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Take.Me.To.The.Other.Side(DJ.Krus.Remix).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/TikTok(Hypertechno).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/WalkingonaDream.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/djKULTz.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/llama-2.91.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/whatcha-says-hypertechno.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Aitch X AJ Tracey - Rain (Jaxson Watson X Rory Loder Bootleg).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Bulletproof X Captain Mashup.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/CHARLI XCX - VROOM VROOM [DJ FINGERBLAST REMIX].mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/David Guetta -Memories( Les Bisous Remix ).mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/EDM-bangin-cutout.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/LIKE A GSIX [RCN TECHNO EDIT] FREE DL.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Nicolas Julian - Applause.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Nicolas Julian - Called Out In The Dark.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Nicolas Julian - Cinema.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Nicolas Julian - La La La.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/Nicolas Julian - The Middle.mp3" },
-            { url: "https://iphoneapp.pages.dev/webampdw/mp3/POKER FACE (TECHNO).mp3" },
-        ],
-		initialSkin: { url: './skins/Expensive_HI_FI_Sony_2005.wsz' },
-	    });
-	    webamp.renderWhenReady(document.getElementById('main'));
-	</script> 
-</div>	
-</body>
-</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
+  <body>
+    <div id="app" style="height: 100vh">
+      <!-- Webamp will attempt to center itself within this div -->
+    </div>
+    <script type="module">
+      import Webamp from "https://unpkg.com/webamp@^2";
+      const webamp = new Webamp({
+        /**
+         * Here we list three tracks. Note that the `metaData` fields and
+         * duration are required to populate the playlist.  If any of those
+         * fields are omitted, Webamp will download at least part of each file
+         * on initial page load in order to determine the missing information.
+         */
+        initialTracks: [
+          {
+            metaData: {
+              artist: "DJ Mike Llama",
+              title: "Llama Whippin' Intro",
+            },
+            // NOTE: Your audio file must be served from the same domain as your HTML
+            // file, or served with permissive CORS HTTP headers:
+            // https://docs.webamp.org/docs/guides/cors
+            url: "https://cdn.jsdelivr.net/gh/captbaritone/webamp@43434d82cfe0e37286dbbe0666072dc3190a83bc/mp3/llama-2.91.mp3",
+            duration: 5.322286,
+          },
+          {
+            metaData: {
+              title: "Heroines",
+              artist: "Diablo Swing Orchestra",
+            },
+            // NOTE: Your audio file must be served from the same domain as your HTML
+            // file, or served with permissive CORS HTTP headers:
+            // https://docs.webamp.org/docs/guides/cors
+            url: "https://raw.githubusercontent.com/captbaritone/webamp-music/4b556fbf/Diablo_Swing_Orchestra_-_01_-_Heroines.mp3",
+            duration: 322.612245,
+          },
+          {
+            metaData: {
+              title: "We Are Going To Eclecfunk Your Ass",
+              artist: "Eclectek",
+            },
+            // NOTE: Your audio file must be served from the same domain as your HTML
+            // file, or served with permissive CORS HTTP headers:
+            // https://docs.webamp.org/docs/guides/cors
+            url: "https://raw.githubusercontent.com/captbaritone/webamp-music/4b556fbf/Eclectek_-_02_-_We_Are_Going_To_Eclecfunk_Your_Ass.mp3",
+            duration: 190.093061,
+          },
+        ],
+      });
+
+      // Returns a promise indicating when it's done loading.
+      webamp.renderWhenReady(document.getElementById("app"));
+    </script>
+  </body>
+</html>
