@@ -1,0 +1,53 @@
+#app {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+
+#controls {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  bottom: 10px;
+}
+
+#current-track {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+}
+
+html {
+height: 100%;
+}
+
+body {
+background:
+	linear-gradient(blue, transparent),
+	linear-gradient(-45deg,magenta,transparent),
+	linear-gradient(45deg,cyan,transparent);
+  background-blend-mode: multiply;
+  animation: move 5s ease infinite;
+}
+
+@keyframes move {
+  33% {
+    background: 
+	  linear-gradient(purple, transparent),
+	  linear-gradient(-45deg,cyan,transparent),
+	  linear-gradient(45deg,magenta,transparent);
+  }
+  67% {
+    background: 
+	  linear-gradient(magenta, transparent),
+	  linear-gradient(-45deg,purple,transparent),
+	  linear-gradient(45deg,cyan,transparent);
+  }
+  100% {
+    background: 
+	  linear-gradient(cyan, transparent),
+	  linear-gradient(-45deg,magenta,transparent),
+	  linear-gradient(45deg,purple,transparent);
+}
+}
